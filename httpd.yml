@@ -1,0 +1,20 @@
+---
+
+
+
+    - name: Installing 
+      yum:
+        name: httpd
+        state: present
+
+    - name: Start 
+      systemd:
+        name: httpd
+        state: started
+        enabled: true
+        force: true
+
+
+
+
+...

@@ -1,0 +1,17 @@
+--- 
+- name: Example of Listing/Array
+  hosts: rhel8
+  vars:
+    mypgs:
+      - ftp
+      - zsh
+      - autofs
+      - lvm2
+      - telnet
+
+  tasks:
+    - name: Install Packages
+      yum:
+        name: "{{ mypgs }}"
+        state: installed
+...

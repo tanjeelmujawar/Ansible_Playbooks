@@ -1,0 +1,28 @@
+---
+- name: Playbook to add multiple user accounts and groups
+  hosts: all
+  tasks:
+    - name: Adding Groups
+      group:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - linux
+        - unix
+        - ubuntu
+        - kali
+
+
+
+    - name: Adding User accounts
+      user:
+        name: "{{ item.usr }}"
+        state: present
+        group: "{{ item.grp }}"
+
+      loop:
+        - { usr: 'Amit' , grp: 'linux' }
+        - { usr: 'vikas' , grp: 'unix' }
+        - { usr: 'max' , grp: 'ubuntu'  }
+        - { usr: 'paul' , grp: 'kali' }
+

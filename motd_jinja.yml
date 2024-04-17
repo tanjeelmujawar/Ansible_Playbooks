@@ -1,0 +1,11 @@
+--- 
+- name: EXAMPLE OF JINJA TEMPLATES
+  hosts: all
+  tasks:
+    - name: Copying Jinja file from server to nodes.
+      template:
+        src: /home/tanjeel/Ansible/Playbooks/motd.j2
+        dest: /etc/motd
+
+...
+

@@ -1,0 +1,23 @@
+---
+- name: Example of Ansible Comditional
+  hosts: all
+  tasks:
+    - name: Checking File Existing.
+      stat:
+        path: /tmp/mujawar.txt
+      register: res
+
+    - debug:
+        var: res
+
+    - name: Creating Files
+      copy:
+        content: " TANJEEL MAHAMADRAFIK MUJAWAR"
+        dest: /tmp/mujawar.txt
+
+      when: res.stat.exists == false
+
+...
+
+
+

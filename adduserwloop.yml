@@ -1,0 +1,22 @@
+---
+- name: User account creation
+  hosts: all
+  become: true
+  tasks:
+    - name: Adding User Vikas
+      user:
+        name: vikas
+        state: present
+
+    - name: Adding User  Amit
+      user: 
+        name: Amit
+        state: present
+
+    - name: Adding User Great
+      user:
+        name: Great
+        state: present
+
+...
+

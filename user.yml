@@ -1,0 +1,12 @@
+---
+- name: Add User 
+  hosts: all
+  tasks:
+    - name: Create User with uid
+      user:
+         name: Apple
+         uid: 1121
+
+
+
+...

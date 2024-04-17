@@ -1,0 +1,44 @@
+--- 
+- name: Example of Ansible Tags
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Installing HTTPD package.
+      yum:
+        name: httpd
+        state: installed
+      tags: pac_tag
+
+    - name: Starting / Enabling httpd service.
+      service:
+        name: httpd
+        state: started
+        enabled: true
+      tags: start_tag
+    - name: Setting Index.html file.
+      copy:
+        content: " TANJEEL MUJAWAR"
+        dest: /var/www/html/index.html
+      tags: set_tag
+
+    - name: Restarting HTTPD service.
+      service:
+        name: httpd
+        state: restarted
+      tags: reset_tag
+
+    - name: Setting up firewall confiuration.
+      firewalld:
+        service: http
+        permanent: yes
+        state: enabled
+      tags: fire_tag
+
+    - name: Reloading Firewalld
+      service:
+        name: firewalld
+        state: reloaded
+      tags: reload_tag
+
+
+...

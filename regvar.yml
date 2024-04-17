@@ -1,0 +1,15 @@
+---
+- name: Registering Variable Example
+  hosts: all
+  tasks:
+    - name: Checking the Hostname of Machine
+      command: hostname
+      register: abc
+
+
+    - debug:
+        var: abc.stdout 
+
+
+
+...

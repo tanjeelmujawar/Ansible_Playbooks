@@ -1,0 +1,14 @@
+---
+- name: Encrypting Playbook with Ansible Vault.
+  hosts: all
+  vars_files:
+    - /home/tanjeel/Ansible/Playbooks/importvault.yml  
+
+  tasks:  
+    - name: Creating User
+      user:
+        name: Ansible
+        password: "{{ pw }}"
+
+
+...

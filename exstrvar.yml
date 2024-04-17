@@ -1,0 +1,33 @@
+---
+- name: Example of string type Variable Playbook
+  hosts: all
+  vars:
+    apache: httpd
+    apache_root: /var/www/html
+
+  tasks:
+    - name: Install Apache Server
+      yum:
+        name: "{{ apache }}"
+        state: installed
+
+
+    - name: Start Httpd Service
+      systemd:
+        name: "{{ apache }}"
+        state: started 
+        enabled: true
+        force: true
+
+    - name: Creating Directory
+      file:
+        path: "{{ apache_root }}"
+        state: directory
+
+    - name: Creating Index File
+      copy:
+        content: "TANJEEL MAHAMADRAFIK MUJAWAR"
+        dest: "{{ apache_root }}/index.html "
+
+
+... 

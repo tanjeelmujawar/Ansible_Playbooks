@@ -1,0 +1,21 @@
+---
+- name: Saving Hardware information
+  hosts: all
+  tasks:
+    - name: Checking Hardware 
+      command: uname -m 
+      register: abc
+
+
+    - debug: 
+        var: abc
+
+    - name: Saving output into file
+      copy:
+        content: "{{ abc }}"
+        dest: /home/tanjeel/op.txt
+
+          
+
+
+...

@@ -1,0 +1,18 @@
+---
+- name: Adding Simple Loop Playbook
+  hosts: all
+  tasks:
+    - name: Adding User 
+      user:
+        name: "{{ item }}"
+        state: absent
+
+      with_items:
+        - vikas
+        - amit
+        - greta
+        - tarun
+
+
+
+...

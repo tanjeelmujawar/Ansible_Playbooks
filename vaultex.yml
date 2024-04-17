@@ -1,0 +1,22 @@
+---
+
+- name: Example of Ansible Vault.
+  hosts: all
+  tasks:
+    - name: Installing APACHE Server
+      yum:
+        name: 
+          - httpd
+          - zsh
+
+
+
+    - name: Starting Apache service
+      systemd:
+        name: httpd
+        state: started
+        enabled: true
+        force: true
+
+
+...

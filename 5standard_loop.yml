@@ -1,0 +1,20 @@
+---
+- name: Add user accounts in diiferent groups
+  hosts: all
+  tasks:
+    - name: Adding user accounts in diiferent groups
+      user:
+        name: "{{ item.name }}"
+        groups: "{{ item.groups }}"
+        state: present
+
+      loop:
+        - { name: 'amit' , groups: wheel }
+        - { name: 'vikas' , groups: wheel }
+        - { name: 'greta' , groups: root }
+        - { name: 'max' , groups: root }
+        - { name: 'paul' , groups: wheel}
+
+
+...
+  

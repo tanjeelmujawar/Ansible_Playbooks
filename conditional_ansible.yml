@@ -1,0 +1,16 @@
+---
+- name: Printing Message using conditional opearators.
+  hosts: all
+  tasks:
+    - name: Checking OS in REDHAT and print a msg
+      shell: echo "This is RedHat based Machine."
+      when: ansible_distribution == "RedHat"
+
+    - name: Checking OS in REDHAT and print a msg
+      shell: echo "This is CentOS based Machine." 
+      when:  ansible_distribution == "CentOS"
+
+
+
+...
+ 

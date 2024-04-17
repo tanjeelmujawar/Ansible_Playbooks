@@ -1,0 +1,21 @@
+---
+- name: Example of Ansible Conditional
+  hosts: all
+  tasks:
+    - name: Checking Ansible Version.
+      command: cat /etc/redhat-release
+      register: os_version
+
+    - name: Printing Message
+      debug:
+        var: os_version.stdout
+
+    - name: Installing Packages
+      yum:
+        name: gcc
+        state: installed
+      when: os_version.stdout == "Red Hat Enterprise Linux release 8.9 (Ootpa)"
+
+...
+
+

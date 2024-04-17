@@ -1,0 +1,20 @@
+---
+- name: Execute some tasks
+  hosts: all
+  tasks:
+    - name: create dir
+      file:
+        path: /tmp/accc
+        state: directory
+
+
+    - name: copy file
+      copy:
+        src: /etc/fstab
+        dest: /tmp/accc/tan
+
+    - name: import file
+      import_tasks: /home/tanjeel/Ansible/Playbooks/httpd.yml
+
+...
+

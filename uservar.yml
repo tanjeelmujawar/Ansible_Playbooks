@@ -1,0 +1,12 @@
+---
+- name: User Defined Variables.
+  hosts: all
+  vars:
+    tan: Tanjeel Mahamadrafik Mujawar
+  tasks:
+    - name: print name using Variables
+      debug:
+        var: tan
+
+
+...

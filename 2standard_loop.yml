@@ -1,0 +1,19 @@
+---
+- name: Add users accounts into system with admin access
+  hosts: all
+  tasks:
+    - name: Adding Users accounts into system
+      user:
+        name: "{{ item }}"
+        group: wheel
+        state: absent 
+
+      loop:
+        - Amit
+        - vikas
+        - raju
+        - greta
+        - tarun
+
+
+...

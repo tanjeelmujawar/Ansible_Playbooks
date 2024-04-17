@@ -1,0 +1,16 @@
+---
+- name: Add user accounts from another PB
+  hosts: all
+  tasks:
+
+    - name: Adding user accounts from another PB
+      user:
+        name: "{{ item }}"
+        state: absent
+        groups: wheel
+
+      with_lines: cat user_plugins_loop.yml
+
+...
+        
+                          

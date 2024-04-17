@@ -1,0 +1,14 @@
+---
+- hosts: rhel8
+  tasks:
+    - name: ADDING USERS
+      user:
+        name: "{{ item.name }}"
+        uid: "{{ item.uid }}"
+        state: present
+      loop:
+        - name: "SAMSUNG"
+          uid: 1023
+        - name: "REALME"
+          uid: 1024
+

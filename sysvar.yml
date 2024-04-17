@@ -1,0 +1,8 @@
+---
+- name: System Defined Variables
+  hosts: all 
+  tasks:
+    - name: Print Inventory name.
+      debug:
+        msg: "{{ inventory_hostname }}"
+...

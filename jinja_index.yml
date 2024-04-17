@@ -1,0 +1,40 @@
+---
+- name: Setting up apache web server on Node using Jinja Templates.
+  hosts: all
+  tasks:
+    - name: Installing Httpd package
+      yum: 
+        name: httpd
+        state: latest
+        
+    - name: Starting Httpd service
+      service: 
+        name: httpd
+        state: started
+        enabled: true
+
+
+    - name: Setting up Web page.
+      template:
+        src: /home/tanjeel/Ansible/Playbooks/index.j2
+        dest: /var/www/html/index.html
+
+
+    - name: Restarting Httpd service
+      service:
+        name: httpd
+        state: restarted
+
+    - name: Setting up firewall
+      firewalld: 
+        service: http
+        permanent: yes
+        state: enabled
+
+    - name: Reloading Firewalld
+      service:
+        name: firewalld
+        state: reloaded
+
+... 
+

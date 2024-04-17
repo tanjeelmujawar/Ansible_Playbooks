@@ -1,0 +1,11 @@
+---
+- name: ADD LINE ?ETC/HOSTS
+  hosts: all
+  tasks:
+    - name: ADDING LINE
+      lineinfile:
+        line: "{{ ansible_default_ipv4.address }} {{ ansible_fqdn }} "
+        dest: /etc/hosts
+
+
+...

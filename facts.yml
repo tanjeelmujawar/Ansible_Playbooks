@@ -1,0 +1,10 @@
+---
+- name: Gather Facts 
+  hosts: all
+  tasks:
+    - name: Gathering Facts and Saving into files.
+      copy:
+        content: "{{ ansible_kernel }}"
+        dest: /home/tanjeel/facts.txt
+
+...
